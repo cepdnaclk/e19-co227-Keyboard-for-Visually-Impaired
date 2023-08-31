@@ -2,15 +2,14 @@
 layout: home
 permalink: index.html
 
-
 # Please update this with your repository name and title
-repository-name: e19-co227-Keyboard-for-Visually-Impaired
-title: Keyboard for the Visually Impaired
+repository-name: eYY-XXX-project-template
+title:
 ---
 
 [comment]: # "This is the standard layout for the project, but you can clean this and use your own template"
 
-# Keyboard for the Visually Impaired
+# Project Title
 
 ---
 
@@ -21,28 +20,32 @@ This is a sample image, to show how to add images to your page. To learn more op
  -->
 
 ## Team
--  E/19/003, Abeysinghe A.M.H.P., [email](e19003@eng.pdn.ac.lk)
--  E/19/004, Abeysinghe R.B., [email](e19004@eng.pdn.ac.lk)
--  E/19/236, Manikdiwela W.L., [email](e19236@eng.pdn.ac.lk)
--  E/19/443, Wijayawardana K.G.D.T., [email](e19443@eng.pdn.ac.lk)
+-  eNumber, Name, [email](mailto:name@email.com)
+-  eNumber, Name, [email](mailto:name@email.com)
+-  eNumber, Name, [email](mailto:name@email.com)
 
 ## Table of Contents
 1. [Introduction](#introduction)
-2. [Links](#links)
+2. [Other Sub Topics](#other-sub-topics)
+3. [Links](#links)
 
 ---
+
 ## Introduction
 
-Welcome to our revolutionary project aimed at creating an innovative keyboard solution catered specifically to the needs of the visually impaired. This keyboard generates characters with correct key combinations, accompanied by auditory cues that announce the typed character, providing an empowering typing experience.
+ description of the real world problem and solution, impact
+
+## Other Sub Topics
+
+.....
 
 ## Links
 
-- [Project Repository](https://github.com/cepdnaclk/e19-co227-Keyboard-for-Visually-Impaired)
-- [Project Page](https://cepdnaclk.github.io/e19-co227-Keyboard-for-Visually-Impaired)
+- [Project Repository](https://github.com/cepdnaclk/{{ page.repository-name }}){:target="_blank"}
+- [Project Page](https://cepdnaclk.github.io/{{ page.repository-name}}){:target="_blank"}
 - [Department of Computer Engineering](http://www.ce.pdn.ac.lk/)
 - [University of Peradeniya](https://eng.pdn.ac.lk/)
 
 
 [//]: # (Please refer this to learn more about Markdown syntax)
 [//]: # (https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
-
