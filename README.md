@@ -2,7 +2,7 @@
 layout: home
 permalink: index.html
 
-# KEYBOARD FOR THE VISULLAY IMPAIRED
+# Please update this with your repository name and title
 repository-name: e19-co227-Keyboard-for-Visually-Impaired
 title: Keyboard for the Visually Impaired
 ---
@@ -27,8 +27,7 @@ This is a sample image, to show how to add images to your page. To learn more op
 
 ## Table of Contents
 1. [Introduction](#introduction)
-2. [Other Sub Topics](#other-sub-topics)
-3. [Links](#links)
+2. [Links](#links)
 
 ---
 
@@ -36,9 +35,6 @@ This is a sample image, to show how to add images to your page. To learn more op
 
 Welcome to our revolutionary project aimed at creating an innovative keyboard solution catered specifically to the needs of the visually impaired. This keyboard generates characters with correct key combinations, accompanied by auditory cues that announce the typed character, providing an empowering typing experience.
 
-## Other Sub Topics
-
-.....
 
 ## Links
 
