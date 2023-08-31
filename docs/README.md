@@ -33,7 +33,7 @@ This is a sample image, to show how to add images to your page. To learn more op
 
 ## Introduction
 
-NOOOOOO
+Welcome to our project aimed at creating an innovative keyboard solution catered specifically to the needs of the visually impaired. This keyboard generates characters with correct key combinations, accompanied by auditory cues that announce the typed character, providing an empowering typing experience.
 
 
 
