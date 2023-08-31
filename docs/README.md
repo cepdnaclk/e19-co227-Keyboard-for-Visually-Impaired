@@ -9,7 +9,7 @@ title: Keyboard for the Visually Impaired
 
 [comment]: # "This is the standard layout for the project, but you can clean this and use your own template"
 
-# KEYBOARD FOR THE VISULLAY IMPAIRED
+# Keyboard for the Visually Impaired
 
 ---
 
@@ -45,5 +45,3 @@ Welcome to our revolutionary project aimed at creating an innovative keyboard so
 [//]: # (Please refer this to learn more about Markdown syntax)
 [//]: # (https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
-[//]: # (Please refer this to learn more about Markdown syntax)
-[//]: # (https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
