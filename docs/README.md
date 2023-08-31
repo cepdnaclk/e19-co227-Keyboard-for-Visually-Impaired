@@ -3,8 +3,8 @@ layout: home
 permalink: index.html
 
 # Please update this with your repository name and title
-repository-name: eYY-XXX-project-template
-title:
+repository-name: e19-co227-Keyboard-for-Visually-Impaired
+title: Keyboard for the Visually Impaired
 ---
 
 [comment]: # "This is the standard layout for the project, but you can clean this and use your own template"
@@ -20,14 +20,14 @@ This is a sample image, to show how to add images to your page. To learn more op
  -->
 
 ## Team
--  eNumber, Name, [email](mailto:name@email.com)
--  eNumber, Name, [email](mailto:name@email.com)
--  eNumber, Name, [email](mailto:name@email.com)
+-  E/19/003, Abeysinghe A.M.H.P., [email](e19003@eng.pdn.ac.lk)
+-  E/19/004, Abeysinghe R.B., [email](e19004@eng.pdn.ac.lk)
+-  E/19/236, Manikdiwela W.L., [email](e19236@eng.pdn.ac.lk)
+-  E/19/443, Wijayawardana K.G.D.T., [email](e19443@eng.pdn.ac.lk)
 
 ## Table of Contents
 1. [Introduction](#introduction)
-2. [Other Sub Topics](#other-sub-topics)
-3. [Links](#links)
+2. [Links](#links)
 
 ---
 
@@ -35,9 +35,7 @@ This is a sample image, to show how to add images to your page. To learn more op
 
  description of the real world problem and solution, impact
 
-## Other Sub Topics
 
-.....
 
 ## Links
 
