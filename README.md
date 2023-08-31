@@ -1,15 +1,4 @@
----
-layout: home
-permalink: index.html
-
-# Please update this with your repository name and title
-repository-name: e19-co227-Keyboard-for-Visually-Impaired
-title: Keyboard for the Visually Impaired
----
-
-[comment]: # "This is the standard layout for the project, but you can clean this and use your own template"
-
-# KEYBOARD FOR THE VISULLAY IMPAIRED
+# Keyboard for the Visually Impaired
 
 ---
 
