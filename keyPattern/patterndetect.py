@@ -1,5 +1,23 @@
 import pyttsx3
 
+class TrieNode:
+    def __init__(self):
+        self.children = {}
+        self.word = False
+
+class Trie:
+    def __init__(self):
+        self.root = TrieNode()
+    def insert(self, word):
+        curr = self.root
+        for c in word:
+            if c not in curr.children:
+                curr.children[c] = TrieNode()
+            curr = curr.children[c] 
+        curr.word = True
+    def dfs(prefix):
+        
+
 decodeMap = {}
 shift = False
 num = False
@@ -12,12 +30,12 @@ engine.setProperty('voice', voices[1].id)
 def talk(text):
     engine.say(text)
     engine.runAndWait()
-talk("greater than")
+talk("welcome")
 
 def getCharacter(code):
     return decodeMap[map]
 
-brailePatterns = [[0, [1, 0, 0, 0, 0, 0]],
+brailePatterns = [[0, [1, 0, 0, 0, 0, 0]], #a
                   [1, [1, 1, 0, 0, 0, 0]],
                   [2, [1, 0, 0, 1, 0, 0]],
                   [3, [1, 0, 0, 1, 1, 0]],
@@ -42,10 +60,10 @@ brailePatterns = [[0, [1, 0, 0, 0, 0, 0]],
                   [22, [0, 1, 0, 1, 1, 1]],
                   [23, [1, 0, 1, 1, 0, 1]],
                   [24, [1, 0, 1, 1, 1, 1]],
-                  [25, [1, 0, 1, 0, 1, 1]],
+                  [25, [1, 0, 1, 0, 1, 1]], #z
                   [-1, [0, 0, 0, 0, 0, 1]], #1 letter capitalize
                   [-2, [0, 0, 1, 1, 1, 1]], #number state on
-                  [-3, [0, 0, 0, 0, 0, 0, 0, 0, 1]], #9 button ->space
+                  [-3, [0, 0, 0, 0, 0, 0, 0, 0, 1]], #9 gbutton ->space
 
 
 ]
