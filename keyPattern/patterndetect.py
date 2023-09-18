@@ -15,8 +15,31 @@ class Trie:
                 curr.children[c] = TrieNode()
             curr = curr.children[c] 
         curr.word = True
-    def dfs(prefix):
+    def dfs(self, curr, word):
+        if curr.word:
+            return word
+        if len(curr.children) >1:
+            return "404"
+        letter = next(iter(curr.children.keys()))
+        #print(letter)
+        word += letter
+        word = self.dfs(curr.children[letter[0]], word)
+        return word        
+
+    def search(self, prefix):
+        curr = self.root
+        for c in prefix:
+            if c not in curr.children:
+                return False
+            curr = curr.children[c]
+        return self.dfs(curr, prefix)
         
+specialChMap = {"asterisk":'*', "at":'@', "ampersand": '&', "dollar": '$'}
+trie = Trie()
+for w in specialChMap.keys():
+    trie.insert(w)
+print(trie.search("a"))
+print(trie.search("as"))
 
 decodeMap = {}
 shift = False
@@ -64,6 +87,7 @@ brailePatterns = [[0, [1, 0, 0, 0, 0, 0]], #a
                   [-1, [0, 0, 0, 0, 0, 1]], #1 letter capitalize
                   [-2, [0, 0, 1, 1, 1, 1]], #number state on
                   [-3, [0, 0, 0, 0, 0, 0, 0, 0, 1]], #9 gbutton ->space
+                  [-4, [0, 0, 0, 0, 0, 0, 1, 0, 0]], # special character mode on
 
 
 ]
