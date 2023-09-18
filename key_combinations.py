@@ -32,7 +32,12 @@ def get_charcter(pressedKeys):
         print("Matched Character:", matched_character)
     else:
         print("No match found.")
-pressedKeys = list(map(int, input().strip().split()))
-print(pressedKeys)
-get_charcter(pressedKeys)
+
+pressed_keys = []
+with open('pressed_keys.txt', 'r') as file:
+    for line in file:
+        pressed_keys.append(int(line.strip()))
+
+print("Pressed Keys:", pressed_keys)
+get_charcter(pressed_keys)
 
