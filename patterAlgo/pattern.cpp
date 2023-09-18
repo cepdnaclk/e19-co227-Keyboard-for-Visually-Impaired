@@ -3,6 +3,7 @@
 #include <map>
 #include <list>
 #include <string>
+#include <cmath>
 
 using namespace std;
 map<int, int> mapdecoder; 
@@ -11,8 +12,21 @@ void addNewCharacterToMap(int code, char c){
     mapdecoder[code] = c-'a';
 
 }
-int encodeButtons(int one, int two, int three, int four, int five, int six){
+int encodeButtons(int arr[], int size){
+    int code = 0;
+    for (int i=0; i<size; i++){
+        code += pow(2, i)*arr[i];
 
+    }
+    return code;
+}
+void addNewCharacter(int arr[], char c){
+    int code = encodeButtons(arr, 6);
+    addNewCharacterToMap(code, c);
+}
+char getCharacter(int code){
+    char c = mapdecoder[code] + 'a';
+    return c;
 }
 
 int main()
