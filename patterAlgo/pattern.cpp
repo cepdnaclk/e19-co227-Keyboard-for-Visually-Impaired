@@ -4,6 +4,7 @@
 #include <list>
 #include <string>
 #include <cmath>
+#include <array>
 
 using namespace std;
 map<int, int> mapdecoder; 
@@ -29,6 +30,8 @@ char getCharacter(int code){
     return c;
 }
 
+map<char, array<int, 6>> keyPatterns;
+keyPatterns['a'] = {};
 int main()
 {
 
