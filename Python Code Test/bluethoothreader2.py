@@ -41,6 +41,7 @@ async def main():
         print(device)
         print(data[1].service_uuids)
         print(data[1].rssi)
+        print()
     
     await read_data_from_characteristic("0C:B8:15:C3:A8:EA","4fafc201-1fb5-459e-8fcc-c5c9c331914b", "beb5483e-36e1-4688-b7f5-ea07361b26a8")
 
