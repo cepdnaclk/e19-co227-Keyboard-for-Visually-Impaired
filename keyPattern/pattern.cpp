@@ -16,7 +16,7 @@ void addNewCharacterToMap(int code, char c){
 int encodeButtons(int arr[], int size){
     int code = 0;
     for (int i=0; i<size; i++){
-        code += pow(2, i)*arr[i];
+        code += (1<<i)*arr[i];
 
     }
     return code;
@@ -31,7 +31,6 @@ char getCharacter(int code){
 }
 
 map<char, array<int, 6>> keyPatterns;
-keyPatterns['a'] = {};
 int main()
 {
 
