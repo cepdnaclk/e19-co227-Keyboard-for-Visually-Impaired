@@ -90,3 +90,12 @@ class ESPSerialReader:
         except Exception as e:
             print(f"Error Disonnecting: {str(e)}")
             return False
+
+
+# Example usage:
+# reader = ESPSerialReader()
+# if reader.connect():
+#     data = reader.read()
+#     # Process the received data
+#     print(f"Received data: {data}")
+#     reader.disconnect()
