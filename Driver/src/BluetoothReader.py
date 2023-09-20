@@ -16,9 +16,12 @@ class ESPBluetoothReader:
         self.client = None
         
     async def scan(self):
-        self.devices = await BleakScanner.discover(return_adv=True)
-        for device,data in self.devices.items():
-            print(f"Name: {data[1].local_name} MAC: {device} RSSI: {data[1].rssi}")
+        try:
+            self.devices = await BleakScanner.discover(return_adv=True)
+            for device,data in self.devices.items():
+                print(f"Name: {data[1].local_name} MAC: {device} RSSI: {data[1].rssi}")
+        except Exception as e:
+            print(f"Error Turn On Bluetooth: {str(e)}")
             
     async def isavalable(self):
         await self.scan()
@@ -44,6 +47,7 @@ class ESPBluetoothReader:
             except Exception as e:
                 print(f"Error Connecting: {str(e)}")
                 return False
+        return True
                 
     async def disconnect(self):
         try:

@@ -55,6 +55,7 @@ class ESPSerialReader:
             if self.isavalable():
                 self.ser = serial.Serial(self.port, 9600)
                 print(f"Key Board Connected via : {self.port}")
+                self.ser.write(0)
                 return True
             return False
         except Exception as e:
