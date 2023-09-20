@@ -44,8 +44,7 @@ specialChMap = { "asterisk":'*', "at":'@', "ampersand": '&', "dollar": '$', "bac
 trie = Trie()
 for w in specialChMap.keys():
     trie.insert(w)
-print(trie.search("a"))
-print(trie.search("as"))
+#
 
 decodeMap = {}
 shift = False
@@ -171,8 +170,9 @@ def decode(code):
             talk(word)
             word = ""
         elif code == -4:
+            talk("Special character mode")
             speciaclChMode = True
             
-test = [1, 17, 0, 8, 11, 4, -3, 19, 4, 18, 19, -4, 1, -3]
+test = [1, 17, 0, 8, 11, 4, -3, 19, 4, 18, 19, -4, 1, -3, -4, 0, 18]
 for t in test:
     print(decode(t))
