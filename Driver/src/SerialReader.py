@@ -7,8 +7,8 @@ import serial.tools.list_ports
 
 class ESPSerialReader:
     def __init__(self):
-        self.port = None
-        self.ser = None
+        self.port = None    # Stores the name of the ESP COM port (e.g., COMx)
+        self.ser = None     # Stores the serial connection object
 
     def scan(self):
         """
@@ -27,10 +27,10 @@ class ESPSerialReader:
             try:
                 print(f"Try to connect to {port_name}")
             
-                # Open a connection with port
+                # Open a connection with the port at 9600 baud rate with a timeout of 1 second
                 ser = serial.Serial(port_name, 9600, timeout=1)
             
-                # If port discription match with the ESP discription find the board
+                # If the port description matches the ESP board's description, identify it
                 if "CP210x USB to UART Bridge" in port_discription: 
                     print(f"ESP Board: {port_name}")
                     esp_port = port_name
@@ -45,6 +45,7 @@ class ESPSerialReader:
         return esp_port
     
     def isavalable(self):
+        # Check if an ESP board is available by calling the scan method
         self.port = self.scan()
         if self.port:
             return True
