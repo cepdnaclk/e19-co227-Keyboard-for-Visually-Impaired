@@ -54,6 +54,7 @@ class ESPSerialReader:
     def connect(self):
         try:
             if self.isavalable():
+                 # If an ESP board is available, establish a serial connection to it
                 self.ser = serial.Serial(self.port, 9600)
                 print(f"Key Board Connected via : {self.port}")
                 return True
@@ -64,7 +65,7 @@ class ESPSerialReader:
         
     def read(self):
         try:
-            data = self.ser.read().decode('utf-8')
+            data = self.ser.read().decode('utf-8')  # Read data from the serial connection
             if data:
                 return data
             return False
