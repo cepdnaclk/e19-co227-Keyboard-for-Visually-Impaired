@@ -1,3 +1,8 @@
+# Author : Harith Abeysinghe
+# Date : 18/09/2023
+# File : key_combinations.py
+
+# Define the possible key sequences and their corresponding characters
 sequences = [
     [2, 3, 4], [2, 3, 5], [2, 3, 10], [2, 3, 11], [2, 3, 12], [2, 3, 13],
     [2, 4, 5], [2, 4, 10], [2, 4, 11], [2, 4, 12], [2, 4, 13],
@@ -21,6 +26,15 @@ combinations = {character: sequence for character, sequence in zip(characters, s
 
 
 def get_charcter(pressedKeys):
+    """
+    Get the character associated with the given pressed keys.
+
+    Args:
+        pressed_keys (list): A list of integers representing the pressed keys.
+
+    Returns:
+        str: The matched character or "No match found" if no match is found.
+    """
     matched_character = None
 
     for char, seq in combinations.items():

@@ -1,3 +1,7 @@
+# Author : Lahiru Menikdiwela
+# Date : 19/09/2023
+# File : patterndetect.py
+
 import pyttsx3
 
 class TrieNode:

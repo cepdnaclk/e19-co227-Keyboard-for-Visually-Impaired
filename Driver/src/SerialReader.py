@@ -45,18 +45,33 @@ class ESPSerialReader:
         return esp_port
     
     def isavalable(self):
-        # Check if an ESP board is available by calling the scan method
+        """
+        Check if an ESP board is available by calling the scan method.
+
+        Returns:
+            bool: True if an ESP board is available, False otherwise.
+        """
         self.port = self.scan()
         if self.port:
             return True
         return False
     
     def connect(self):
+        """
+        Connect to an available ESP board via serial communication.
+
+        Returns:
+            bool: True if the connection is successful, False otherwise.
+        """
         try:
             if self.isavalable():
                  # If an ESP board is available, establish a serial connection to it
                 self.ser = serial.Serial(self.port, 9600)
                 print(f"Key Board Connected via : {self.port}")
+                self.ser.read().decode('utf-8')
+                data = '0'
+                self.ser.write(data.encode())
+                self.ser.read().decode('utf-8')
                 return True
             return False
         except Exception as e:
@@ -64,11 +79,26 @@ class ESPSerialReader:
             return False
         
     def read(self):
+        """
+        Read data from the connected ESP board via serial communication.
+
+        Returns:
+            str or False: The read data as a string if available, or False if an error occurs.
+        """
         try:
             data = self.ser.read().decode('utf-8')  # Read data from the serial connection
             if data:
-                return data
+                return data.strip()
             return False
         except Exception as e:
             print(f"Error Disonnecting: {str(e)}")
             return False
+
+
+# Example usage:
+# reader = ESPSerialReader()
+# if reader.connect():
+#     data = reader.read()
+#     # Process the received data
+#     print(f"Received data: {data}")
+#     reader.disconnect()
