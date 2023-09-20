@@ -1,22 +1,19 @@
+# Author : Dasun Theekshana, Ravindu
+# Date : 19/09/2023
+# File : SerialReader.py
+
 import asyncio
 from modulefinder import AddPackagePath
 from pkgutil import get_loader
 from site import addpackage
-import pynput.keyboard as keyboard
 
 from src.SerialReader import *
 from src.BluetoothReader import *
 from src.WifiReader import *
+from src.KeyBoard import *
 
 mode = 1
 agent = None
-
-k = keyboard.Controller()
-
-def send_char_to_input_buffer(c):
-    """Sends a character to the keyboard input buffer."""
-    k.press(c)
-    k.release(c)
 
 if __name__ == "__main__":
     def run():
@@ -26,7 +23,7 @@ if __name__ == "__main__":
             data = agent.read()
             if data:
                 print(data)
-                send_char_to_input_buffer(data)
+                keyboard.keypress(data)
                 
     async def runbluetooth():
         global agent
@@ -36,8 +33,10 @@ if __name__ == "__main__":
             data = await agent.read()
             if data:
                 print(data)
-                send_char_to_input_buffer(data)
-       
+                # keyboard.keypress(data)
+                
+    keyboard = KeyBoard()
+    
     if mode == 0:
         agent = ESPSerialReader()
         agent.connect()
