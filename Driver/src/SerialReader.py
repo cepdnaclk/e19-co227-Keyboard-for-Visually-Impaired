@@ -57,6 +57,7 @@ class ESPSerialReader:
                  # If an ESP board is available, establish a serial connection to it
                 self.ser = serial.Serial(self.port, 9600)
                 print(f"Key Board Connected via : {self.port}")
+                self.ser.write(0)
                 return True
             return False
         except Exception as e:
