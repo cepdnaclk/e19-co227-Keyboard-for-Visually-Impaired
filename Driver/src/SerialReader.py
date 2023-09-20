@@ -68,7 +68,10 @@ class ESPSerialReader:
                  # If an ESP board is available, establish a serial connection to it
                 self.ser = serial.Serial(self.port, 9600)
                 print(f"Key Board Connected via : {self.port}")
-                self.ser.write(0)
+                self.ser.read().decode('utf-8')
+                data = '0'
+                self.ser.write(data.encode())
+                self.ser.read().decode('utf-8')
                 return True
             return False
         except Exception as e:
@@ -85,7 +88,7 @@ class ESPSerialReader:
         try:
             data = self.ser.read().decode('utf-8')  # Read data from the serial connection
             if data:
-                return data
+                return data.strip()
             return False
         except Exception as e:
             print(f"Error Disonnecting: {str(e)}")

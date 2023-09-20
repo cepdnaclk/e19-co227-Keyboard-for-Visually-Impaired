@@ -10,6 +10,7 @@
 char ssid[50];      // Buffer ro store SSID   
 char password[50];  // Buffer to store password
 char host[50];      // Buffer to store host IP
+String modec = "";
 
 int port = 8888;     // Port to Connect
 int mode;           // Mode connect with PC
@@ -38,12 +39,12 @@ void setup() {
 
   getmode();
   // mode = 1;
-  if (mode == 0){
+  if (mode == 48){
     Serial.println("USB");
-  }else if (mode == 1){
+  }else if (mode == 49){
     Serial.println("Bluetooth");
     connectBluetooth();
-  }else if (mode == 2){
+  }else if (mode == 50){
     Serial.println("WiFi");
     // getWiFiCredential();
     // connectWiFi();
@@ -52,11 +53,11 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  if (mode == 0){
+  if (mode == 48){
     Serial.println('A');
-  }else if (mode == 1){
+  }else if (mode == 49){
     sendBluetooth('A');
-  }else if (mode == 2){
+  }else if (mode == 50){
     // sendWiFi('A');
   }
   delay(300);
@@ -66,8 +67,9 @@ void loop() {
 void getmode(){
   Serial.println("Mode:");
   while(!Serial.available()){} // Wait for ussid
-  mode = Serial.parseInt();
-  Serial.readBytesUntil('\n', ssid, sizeof(ssid));
+  modec = Serial.read();
+  // Serial.readBytesUntil('\n', ssid, sizeof(ssid));
+  mode = modec.toInt();
 }
 
 void getWiFiCredential(){
