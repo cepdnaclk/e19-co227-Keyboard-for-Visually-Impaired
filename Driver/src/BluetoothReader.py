@@ -5,15 +5,18 @@
 import asyncio
 from bleak import BleakScanner, BleakClient
 
-service_uuid = '4fafc201-1fb5-459e-8fcc-c5c9c331914b'  # Service UUID
-characteristic_uuid = 'beb5483e-36e1-4688-b7f5-ea07361b26a8' # Characteristic UUID
+# Define the service UUID and characteristic UUID for the BLE device
+
+service_uuid = '4fafc201-1fb5-459e-8fcc-c5c9c331914b' 
+characteristic_uuid = 'beb5483e-36e1-4688-b7f5-ea07361b26a8' 
 
 class ESPBluetoothReader:
     def __init__(self):
-        self.macaddrs = None
-        self.name = None
-        self.devices = None
-        self.client = None
+        self.macaddrs = None      # Stores the MAC address of the selected BLE device
+        self.name = None          # Stores the name of the selected BLE device
+        self.devices = None       # Stores discovered BLE devices
+        self.client = None        # Stores the BleakClient object for the selected device
+
         
     async def scan(self):
         self.devices = await BleakScanner.discover(return_adv=True)
