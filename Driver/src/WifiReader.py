@@ -16,6 +16,12 @@ class ESPWifiReader:
         self.host = host
         
     def scan(self):
+        """
+        Scan and retrieve the IP address of the local machine.
+
+        Returns:
+            str: The IP address of the local machine.
+        """
         # Get the hostname of the local machine
         hostname = socket.gethostname()
 
@@ -26,6 +32,12 @@ class ESPWifiReader:
         return ip
         
     def connect(self):
+        """
+        Establish a socket server and listen for incoming connections.
+
+        Returns:
+            bool: True if the server is successfully started, False otherwise.
+        """
         try:
             ip = self.scan()
             
@@ -46,6 +58,12 @@ class ESPWifiReader:
             return False
         
     def disconnect(self):
+        """
+        Disconnect the client socket and close the server socket.
+
+        Returns:
+            bool: True if disconnection is successful, False otherwise.
+        """
         try:
             if self.server:
                 self.clientsocket.close()
@@ -57,6 +75,12 @@ class ESPWifiReader:
                 return False
         
     def read(self):
+        """
+        Read data from the connected client socket.
+
+        Returns:
+            str or False: The read data as a string if available, or False if an error occurs.
+        """
         try:
             self.clientsocket, self.clientip = self.server.accept()
             data = self.clientsocket.recv(1)
@@ -66,3 +90,11 @@ class ESPWifiReader:
         except Exception as e:
                 print(f"Error Reading: {str(e)}")
                 return False
+
+# Example usage:
+# reader = ESPWifiReader("0.0.0.0")
+# if reader.connect():
+#     data = reader.read()
+#     # Process the received data
+#     print(f"Received data: {data}")
+#     reader.disconnect()
