@@ -19,13 +19,20 @@ class ESPBluetoothReader:
 
         
     async def scan(self):
-        # Discover nearby BLE devices and return their advertising data
-        self.devices = await BleakScanner.discover(return_adv=True)
-        for device,data in self.devices.items():
-            print(f"Name: {data[1].local_name} MAC: {device} RSSI: {data[1].rssi}")
+        """
+        Discover nearby BLE devices and return their advertising data.
+        """
+        try:
+            self.devices = await BleakScanner.discover(return_adv=True)
+            for device,data in self.devices.items():
+                print(f"Name: {data[1].local_name} MAC: {device} RSSI: {data[1].rssi}")
+        except Exception as e:
+            print(f"Error Turn On Bluetooth: {str(e)}")
             
     async def isavalable(self):
-         # Check if the desired BLE device is available
+        """
+        Check if the desired BLE device is available.
+        """
         await self.scan()    # Perform a scan to discover devices
         if self.devices:
             devicename = input("Enter the Devices Name: ")
@@ -39,6 +46,9 @@ class ESPBluetoothReader:
         return False
     
     async def connect(self):
+        """
+        Connect to the selected BLE device.
+        """
         if await self.isavalable():
             # Create a BleakClient instance for the selected device
             self.client = BleakClient(self.macaddrs)
@@ -51,10 +61,13 @@ class ESPBluetoothReader:
             except Exception as e:
                 print(f"Error Connecting: {str(e)}")
                 return False
+        return True
                 
     async def disconnect(self):
+        """
+        Disconnect from the selected BLE device.
+        """
         try:
-             # Disconnect from the selected BLE device
             await self.client.disconnect()
             print(f"{self.name} disonnected")
             self.name = None
@@ -66,8 +79,10 @@ class ESPBluetoothReader:
                 return False
     
     async def read(self):
+        """
+        Read data from the specified BLE characteristic.
+        """
         try:
-            # Read data from the specified BLE characteristic
             data = await self.client.read_gatt_char(characteristic_uuid)
             if data:
                 return data.decode('utf-8')
@@ -75,3 +90,9 @@ class ESPBluetoothReader:
         except Exception as e:
                 print(f"Error Reading: {str(e)}")
                 return False
+
+# Example usage:
+# reader = ESPBluetoothReader()
+# await reader.connect()
+# data = await reader.read()
+# await reader.disconnect()
