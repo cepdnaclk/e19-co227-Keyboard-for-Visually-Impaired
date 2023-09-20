@@ -1,3 +1,5 @@
+//Initial test program to check connectivity and combination recognition
+
 const int buttonPins[] = {2, 3, 4, 5, 6, 10, 11, 12, 13};
 const int numButtons = sizeof(buttonPins) / sizeof(buttonPins[0]);
 int pressedKeys[3]; 
