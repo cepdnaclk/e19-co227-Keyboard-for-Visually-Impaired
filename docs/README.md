@@ -43,7 +43,7 @@ Welcome to our revolutionary project aimed at creating an innovative keyboard so
 
 ### Data Flow
 
-> <img src="./dataflow.jpg" alt="Alt Text" width="600" height="400">
+> <img src="./images/dataflow.jpg" alt="Alt Text" width="600" height="400">
 
   <br>
 
