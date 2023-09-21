@@ -1,6 +1,7 @@
 #Folders
 .vs/
 /.vs
+ Driver/src/__pycache__/*
 
 #Files
  .vs/slnx.sqlite

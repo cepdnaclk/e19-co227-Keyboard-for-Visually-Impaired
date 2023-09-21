@@ -30,7 +30,7 @@ Welcome to our revolutionary project aimed at creating an innovative keyboard so
 
 ## Control & Data Flow
 
-### Control Flow
+### Data Flow
 
 > <img src="./dataflow.jpg" alt="Alt Text" width="600" height="400">
 

@@ -41,16 +41,10 @@ class Trie:
 specialChMap = { "asterisk":'*', "at":'@', "ampersand": '&', "dollar": '$', "backslash": '\\',"slash": '/',
                 "colon": ':', "semicolon": ';', "caret": '^', "tilde": '~', "sharp": '#', "greaterthan": '>', "lessthan": '>',
                  'plus': '+', "add": '+', "subtract": "-", "negative": '-', "equal": '=', "openbracket": '(', "closebracket": ')' }
-trie = Trie()
-for w in specialChMap.keys():
-    trie.insert(w)
-#
+
 
 decodeMap = {}
-shift = False
-num = False
-CapsLock = False
-speciaclChMode = False
+
 
 engine  = pyttsx3.init()
 voices = engine.getProperty('voices')
@@ -110,69 +104,79 @@ def createHash():
         code = encode(ar[1])
         decodeMap[code] = ar[0]
 
-createHash()
+
+class KeyDecoder:
+    def __init__(self):
+        createHash()
+        self.word = ""
+        self.specialCh = ""
+        self.shift = False
+        self.num = False
+        self.CapsLock = False
+        self.speciaclChMode = False
+        self.trie = Trie()
+        for w in specialChMap.keys():
+            self.trie.insert(w)
+        
 
 
 #num = False
-word = ""
-specialCh = ""
-def decode(code):
-    global num, shift, CapsLock, word, specialCh, speciaclChMode
-    #code = decodeMap[encoded]
-    if code>=0:
-        if speciaclChMode:
-            s = chr(ord('a')+code)
-            talk(s)
-            specialCh += s
-            response = trie.search(specialCh)
-            if response != '404':
-                word += specialChMap[response]
-                talk(response)
-                specialCh = ""
-                speciaclChMode = False
-                return specialChMap[response]
 
-
-            
-        elif num:
-            if code<=9:
-                if code != 9:
-                    s = str(code+1)
-                else:
-                    s = '0'
+    def decode(self, code):
+        
+        #code = decodeMap[encoded]
+        if code>=0:
+            if self.speciaclChMode:
+                s = chr(ord('a')+code)
                 talk(s)
-                word += s
-                return str(s)
+                self.specialCh += s
+                response = self.trie.search(self.specialCh)
+                if response != '404':
+                    self.word += specialChMap[response]
+                    talk(response)
+                    self.specialCh = ""
+                    speciaclChMode = False
+                    return specialChMap[response]
+
+
+                
+            elif self.num:
+                if code<=9:
+                    if code != 9:
+                        s = str(code+1)
+                    else:
+                        s = '0'
+                    talk(s)
+                    self.word += s
+                    return str(s)
+                else:
+                    talk("not a valid digit")
             else:
-                talk("not a valid digit")
+                s = chr(ord('a')+code)
+                talk(s)
+                self.word += s
+                if not self.shift:
+                    return chr(ord('a')+code)
+                self.shift = False
+                return chr(ord('A')+code)
         else:
-            s = chr(ord('a')+code)
-            talk(s)
-            word += s
-            if not shift:
-                return chr(ord('a')+code)
-            shift = False
-            return chr(ord('A')+code)
-    else:
-        if code ==-1:
-            if not shift:
-                talk("shift")
-                shift = True
-            else:
-                talk("capslock")
-                CapsLock = True
-        elif code == -2:
-            talk("digit mode")
-            num = True
-        elif code == -3:
-            shift = False
-            num = False
-            talk(word)
-            word = ""
-        elif code == -4:
-            talk("Special character mode")
-            speciaclChMode = True
+            if code ==-1:
+                if not self.shift:
+                    talk("shift")
+                    self.shift = True
+                else:
+                    talk("capslock")
+                    CapsLock = True
+            elif code == -2:
+                talk("digit mode")
+                self.num = True
+            elif code == -3:
+                self.shift = False
+                self.num = False
+                self.speciaclChMode = False
+                talk(self.word)
+                self.word = ""
+            elif code == -4:
+                talk("Special character mode")
+                self.speciaclChMode = True
             
-test = [1, 17, 0, 8, 11, 4, -3, 19, 4, 18, 19, -4, 1, -3, -4, 0, 18]
-for t in test:
-    print(decode(t))
