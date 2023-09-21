@@ -20,7 +20,6 @@ This is a sample image, to show how to add images to your page. To learn more op
 1. [Introduction](#introduction)
 2. [Control & Data Flow](#control-&-data-flow)
 3. [User Experince](#user-experince)
-
 4. [Links](#links)
 
 ---
