@@ -16,7 +16,6 @@ class ESPBluetoothReader:
         self.name = None          # Stores the name of the selected BLE device
         self.devices = None       # Stores discovered BLE devices
         self.client = None        # Stores the BleakClient object for the selected device
-
         
     async def scan(self):
         """

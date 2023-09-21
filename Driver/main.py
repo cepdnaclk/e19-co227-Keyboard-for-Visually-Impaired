@@ -3,9 +3,9 @@
 # File : SerialReader.py
 
 import asyncio
-from modulefinder import AddPackagePath
-from pkgutil import get_loader
-from site import addpackage
+#from modulefinder import AddPackagePath
+#from pkgutil import get_loader
+#from site import addpackage
 
 from src.SerialReader import *
 from src.BluetoothReader import *
@@ -23,35 +23,25 @@ if __name__ == "__main__":
             data = agent.read()
             if data:
                 print(data)
-                keyboard.keypress(data)
+                #keyboard.keypress(data)
                 
     async def runbluetooth():
         global agent
-        agent = ESPBluetoothReader()
         await agent.connect()
         while True:
             data = await agent.read()
             if data:
                 print(data)
-                # keyboard.keypress(data)
+                #keyboard.keypress(data)
                 
-    keyboard = KeyBoard()
+    #keyboard = KeyBoard()
     
     if mode == 0:
         agent = ESPSerialReader()
-        agent.connect()
         run()
     elif mode == 1:
+        agent = ESPBluetoothReader()
         asyncio.run(runbluetooth())
     elif mode == 2:
         agent = ESPWifiReader("0.0.0.0")
         run()
-    """
-    agent = ESPSerialReader()
-    agent.connect()
-    while True:
-            data = agent.read()
-            if data:
-                print(data)
-    
-    """
