@@ -60,7 +60,7 @@ void loop() {
   }else if (mode == 50){
     // sendWiFi('A');
   }
-  delay(300);
+  delay(3000);
 
 }
 
@@ -154,7 +154,7 @@ bool sendBluetooth(char data){
     Serial.println(data); // TODO: Remove this. this is testing perpose only
     pCharacteristic->notify();
     return true;
-    //delay(300); // TODO:To avoid congestion
+    delay(300); // TODO:To avoid congestion
   }
   return false;
 }
