@@ -1,46 +1,60 @@
+# Author : Harith Abeysinghe
+# File Name : GUI.py
+# Date : 29/09/2023
+
+
 import tkinter as tk
 from tkinter import messagebox
 from tkinter import filedialog
 import docx
 import os
 
+
+# Function to save the text
 def save_text():
     global current_file
-    text = text_entry.get("1.0", "end-1c")
+    text = text_entry.get("1.0", "end-1c")  # Get the text from the text entry widget
     if text:
         if current_file:
-            if current_file.endswith(".txt"):
+            if current_file.endswith(".txt"):  # Check if the current file has a .txt extension
                 with open(current_file, "w") as file:
-                    file.write(text)
-            elif current_file.endswith(".docx"):
+                    file.write(text)  # Save the text to a .txt file
+            elif current_file.endswith(".docx"):  # Check if the current file has a .docx extension
                 doc = docx.Document()
                 doc.add_paragraph(text)
-                doc.save(current_file)
-            messagebox.showinfo("Info", f"Saved to {current_file}")
+                doc.save(current_file)  # Save the text as a .docx file
+            messagebox.showinfo("Info", f"Saved to {current_file}")  # Show a message box with a success message
         else:
-            save_as()
+            save_as()  # If there is no current file, prompt the user to save with a new file name
 
+
+# Function to open a file
 def open_file():
     global current_file
-    file_name = filedialog.askopenfilename(defaultextension=".docx", filetypes=[("Text Documents", "*.txt"), ("Word Documents", "*.docx")])
+    file_name = filedialog.askopenfilename(defaultextension=".docx",
+                                           filetypes=[("Text Documents", "*.txt"), ("Word Documents", "*.docx")])
     if file_name:
         current_file = file_name
-        file_extension = os.path.splitext(file_name)[1]
-        if file_extension == ".txt":
+        file_extension = os.path.splitext(file_name)[1]  # Get the file extension
+        if file_extension == ".txt":  # If the file is a .txt file
             with open(file_name, "r") as file:
-                text = file.read()
-        elif file_extension == ".docx":
+                text = file.read()  # Read the text from the file
+        elif file_extension == ".docx":  # If the file is a .docx file
             doc = docx.Document(file_name)
-            text = "\n".join([paragraph.text for paragraph in doc.paragraphs])
-        text_entry.delete("1.0", "end")
-        text_entry.insert("1.0", text)
+            text = "\n".join([paragraph.text for paragraph in doc.paragraphs])  # Read the text from the document
+        text_entry.delete("1.0", "end")  # Clear the current text in the text entry widget
+        text_entry.insert("1.0", text)  # Insert the loaded text into the text entry widget
 
+
+# Function to save as a new file
 def save_as():
     global current_file
-    file_name = filedialog.asksaveasfilename(defaultextension=".txt", filetypes=[("Text Documents", "*.txt"), ("Word Documents", "*.docx")])
+    file_name = filedialog.asksaveasfilename(defaultextension=".txt",
+                                             filetypes=[("Text Documents", "*.txt"), ("Word Documents", "*.docx")])
     if file_name:
         current_file = file_name
-        save_text()
+        save_text()  # Call the save_text function to save the text with the new file name
+
 
 # Create the main window
 root = tk.Tk()
