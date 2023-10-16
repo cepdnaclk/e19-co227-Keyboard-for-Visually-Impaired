@@ -197,3 +197,12 @@ class KeyDecoder:
                 talk("Special character mode")
                 self.speciaclChMode = True
             
+def test():
+    
+    test_decoder = KeyDecoder()
+    assert test_decoder.decode(0) =="a"
+    assert test_decoder.decode(1)=="b"
+    assert test_decoder.decode(2)=="c"
+    test_decoder.decode(-1)
+    assert test_decoder.decode(0) == "A"
+test()
