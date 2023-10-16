@@ -64,7 +64,11 @@ void loop() {
   }else if (mode == 49){
     //sendBluetooth('A');
   }else if (mode == 50){
-    sendWiFi(5);
+    //sendWiFi(5);
+     for (int i =0;i<14;i++){
+      sendWiFi(test[i]);
+      delay(1000);
+    }
   }
   delay(3000);
 
@@ -104,12 +108,12 @@ void connectWiFi(){
   Serial.println("Connected to WiFi");
 }
 
-bool sendWiFi(char data){
+bool sendWiFi(int data){
   if (WiFi.status() == WL_CONNECTED){
     WiFiClient client;
     if (client.connect(host, port)){
       Serial.println(data); // TODO: Remove this. this is testing perpose only
-      client.print(data); // Send data
+      client.println(data); // Send data
       client.stop();
       return true;
     }
@@ -153,7 +157,7 @@ void connectBluetooth(){
   Serial.println("Waiting a client connection to notify...");
 }
 
-bool sendBluetooth(char data){
+bool sendBluetooth(int data){
   // Notify changed data
   if (deviceConnected){
     pCharacteristic->setValue((uint8_t*)&data, 1);
