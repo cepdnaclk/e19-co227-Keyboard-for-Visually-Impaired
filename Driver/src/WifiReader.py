@@ -83,7 +83,7 @@ class ESPWifiReader:
         """
         try:
             self.clientsocket, self.clientip = self.server.accept()
-            data = self.clientsocket.recv(1)
+            data = self.clientsocket.recv(2)
             if data:
                 return data.decode('utf-8')
             return False

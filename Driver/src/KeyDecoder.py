@@ -205,4 +205,4 @@ def test():
     assert test_decoder.decode(2)=="c"
     test_decoder.decode(-1)
     assert test_decoder.decode(0) == "A"
-test()
+
