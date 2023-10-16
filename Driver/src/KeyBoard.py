@@ -23,7 +23,7 @@ class KeyBoard():
         self.keyboard.release(key)
         
     def voice(self, text):
-        self.engine.say(text)
+        #self.engine.say(text)
         self.engine.runAndWait()
         
     def keypress(self, key):
