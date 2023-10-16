@@ -11,8 +11,9 @@ from src.SerialReader import *
 from src.BluetoothReader import *
 from src.WifiReader import *
 from src.KeyBoard import *
+from src.KeyDecoder import *
 
-mode = 0
+mode = 2
 agent = None
 
 if __name__ == "__main__":
@@ -22,8 +23,11 @@ if __name__ == "__main__":
         while True:
             data = agent.read()
             if data:
-                print(data)
-                #keyboard.keypress(data)
+                #print(data)
+                letter = decoder.decode(int(data))
+                if letter:
+                    print(letter)
+                    #keyboard.keypress(data)
                 
     async def runbluetooth():
         global agent
@@ -35,6 +39,7 @@ if __name__ == "__main__":
                 #keyboard.keypress(data)
                 
     #keyboard = KeyBoard()
+    decoder = KeyDecoder()
     
     if mode == 0:
         agent = ESPSerialReader()

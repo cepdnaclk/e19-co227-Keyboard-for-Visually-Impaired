@@ -15,6 +15,8 @@ String modec = "";
 int port = 8888;     // Port to Connect
 int mode;           // Mode connect with PC
 
+int test[] = {1, 17, 0, 8, 11, 4, -3, 19, 4, 18, 19, -4, 1, -3, -4, 0, 18};
+
 BLEServer* pServer = NULL;
 BLECharacteristic* pCharacteristic= NULL;
 bool deviceConnected = false;
@@ -54,7 +56,11 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   if (mode == 48){
-    Serial.println(5);
+    //Serial.println(5);
+    for (int i =0;i<14;i++){
+      Serial.println(test[i]);
+      delay(1000);
+    }
   }else if (mode == 49){
     //sendBluetooth('A');
   }else if (mode == 50){
