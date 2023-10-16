@@ -4,6 +4,7 @@
 
 import serial
 import serial.tools.list_ports
+import time
 
 class ESPSerialReader:
     def __init__(self):
@@ -68,10 +69,13 @@ class ESPSerialReader:
                  # If an ESP board is available, establish a serial connection to it
                 self.ser = serial.Serial(self.port, 9600)
                 print(f"Key Board Connected via : {self.port}")
-                self.ser.read().decode('utf-8')
+                data = self.ser.read().decode('utf-8')
+                time.sleep(1)
                 data = '0'
                 self.ser.write(data.encode())
-                self.ser.read().decode('utf-8')
+                self.ser.readline().decode('utf-8')
+                data = self.ser.readline().decode('utf-8')
+                print(data)
                 return True
             return False
         except Exception as e:
@@ -86,7 +90,7 @@ class ESPSerialReader:
             str or False: The read data as a string if available, or False if an error occurs.
         """
         try:
-            data = self.ser.read().decode('utf-8')  # Read data from the serial connection
+            data = self.ser.readline().decode('utf-8')  # Read data from the serial connection
             if data:
                 return data.strip()
             return False
