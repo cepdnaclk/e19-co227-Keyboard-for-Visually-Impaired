@@ -193,6 +193,7 @@ class KeyDecoder:
                 self.speciaclChMode = False
                 talk(self.word)
                 self.word = ""
+                return " "
             elif code == -4:
                 talk("Special character mode")
                 self.speciaclChMode = True
