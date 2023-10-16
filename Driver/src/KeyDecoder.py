@@ -10,9 +10,13 @@ class TrieNode:
         self.word = False
 
 class Trie:
+    """
+    data structure to store special characters and perform seaching of the required special characters
+    """
     def __init__(self):
         self.root = TrieNode()
     def insert(self, word):
+        """add new special character to Trie"""
         curr = self.root
         for c in word:
             if c not in curr.children:
@@ -20,6 +24,9 @@ class Trie:
             curr = curr.children[c] 
         curr.word = True
     def dfs(self, curr, word):
+        """ 
+        looks for possible special character and if there is only one return it
+        """
         if curr.word:
             return word
         if len(curr.children) >1:
@@ -51,6 +58,9 @@ voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[1].id)
 
 def talk(text):
+    """
+    generate voice feedback
+    """
     engine.say(text)
     engine.runAndWait()
 talk("welcome")
@@ -58,6 +68,8 @@ talk("welcome")
 def getCharacter(code):
     return decodeMap[map]
 
+
+#store braile paterns
 brailePatterns = [[0, [1, 0, 0, 0, 0, 0]], #a
                   [1, [1, 1, 0, 0, 0, 0]], #b
                   [2, [1, 0, 0, 1, 0, 0]], #c
@@ -93,6 +105,9 @@ brailePatterns = [[0, [1, 0, 0, 0, 0, 0]], #a
 ]
 
 def encode(ar):
+    """
+    function to encode pattern in to a integer
+    """
 
     code = 0
     for i in range(len(ar)):
@@ -100,6 +115,7 @@ def encode(ar):
     return code
 
 def createHash():
+    """ create encoded integer for all keys and stored in a hash"""
     for ar in brailePatterns:
         code = encode(ar[1])
         decodeMap[code] = ar[0]
@@ -120,11 +136,12 @@ class KeyDecoder:
         
 
 
-#num = False
 
     def decode(self, code):
         
-        #code = decodeMap[encoded]
+        """"
+        decode the integer in to a key and generate voice feedback
+        """
         if code>=0:
             if self.speciaclChMode:
                 s = chr(ord('a')+code)
