@@ -35,7 +35,7 @@ class MyServerCallbacks: public BLEServerCallbacks{
 
 void setup() {
   Serial.begin(9600);
-  Serial.println();
+  //Serial.println();
 
   getmode();
   // mode = 1;
@@ -43,22 +43,22 @@ void setup() {
     Serial.println("USB");
   }else if (mode == 49){
     Serial.println("Bluetooth");
-    connectBluetooth();
+    //connectBluetooth();
   }else if (mode == 50){
     Serial.println("WiFi");
-    // getWiFiCredential();
-    // connectWiFi();
+    getWiFiCredential();
+    connectWiFi();
   }
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
   if (mode == 48){
-    Serial.println('A');
+    Serial.println(5);
   }else if (mode == 49){
-    sendBluetooth('A');
+    //sendBluetooth('A');
   }else if (mode == 50){
-    // sendWiFi('A');
+    sendWiFi(5);
   }
   delay(3000);
 
@@ -68,7 +68,7 @@ void getmode(){
   Serial.println("Mode:");
   while(!Serial.available()){} // Wait for ussid
   modec = Serial.read();
-  // Serial.readBytesUntil('\n', ssid, sizeof(ssid));
+  Serial.readBytesUntil('\n', ssid, sizeof(ssid));
   mode = modec.toInt();
 }
 

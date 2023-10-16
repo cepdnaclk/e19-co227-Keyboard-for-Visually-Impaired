@@ -12,7 +12,7 @@ from src.BluetoothReader import *
 from src.WifiReader import *
 from src.KeyBoard import *
 
-mode = 1
+mode = 0
 agent = None
 
 if __name__ == "__main__":
