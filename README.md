@@ -43,7 +43,9 @@ Welcome to our revolutionary project aimed at creating an innovative keyboard so
 
 ### Giving Inputs
 
-> The system employs a set of 10 pushbuttons for character input, with 8 buttons dedicated to character combinations and 2 buttons serving as essential controls for backspacing and inserting spaces. It facilitates communication between an ESP32 microcontroller and a PC through two primary connections: a USB connection for seamless data exchange and a Bluetooth connection for wireless communication. This setup allows for versatile and efficient text input and data transfer between the ESP32 device and a connected PC, offering both convenience and flexibility in various applications.
+> The system is equipped with a set of 9 pushbuttons, each with a distinct role in character input. Of these buttons, 6 are dedicated to forming character combinations, while the remaining 3 serve as essential controls for backspacing, inserting spaces, and mode selection. The primary mode of connection for this system is through a USB interface, ensuring seamless data exchange and reliable communication between the ESP32 microcontroller and a connected PC.
+
+In addition to the USB connection, the system offers additional features, expanding its capabilities to include wireless communication options. Users can opt for wireless data transfer via both Wi-Fi and Bluetooth connections, enhancing the versatility and efficiency of text input and data exchange between the ESP32 device and the connected PC. These wireless connections provide convenience and flexibility, making the system suitable for a wide range of applications.
 
  <br>
 
