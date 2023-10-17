@@ -3,10 +3,21 @@
 #include <BLEServer.h>
 #include <BLEUtils.h>
 #include <BLE2902.h>
+#include <array>
 
 #define SERVICE_UUID        "4fafc201-1fb5-459e-8fcc-c5c9c331914b"
 #define CHARACTERISTIC_UUID "beb5483e-36e1-4688-b7f5-ea07361b26a8"
 
+const int button_0 = 17;
+const int button_1= 18;
+const int button_2 = 19;
+const int button_3 = 21;
+const int button_4 = 25;
+const int button_5= 26;
+const int button_6 = 27;
+const int button_7 = 32;
+const int button_8 = 33;
+// 19, 21, 25, 26, 27, 32, 33, 34, 35
 char ssid[50];      // Buffer ro store SSID   
 char password[50];  // Buffer to store password
 char host[50];      // Buffer to store host IP
@@ -14,6 +25,16 @@ String modec = "";
 
 int port = 8888;     // Port to Connect
 int mode;           // Mode connect with PC
+int arr[9]= {0, 0, 0, 0, 0, 0, 0, 0, 0};
+int encodeButtons(int arr[], int size){
+    int code = 0;
+    for (int i=0; i<size; i++){
+        code += (1<<i)*arr[i];
+
+    }
+    return code;
+}
+
 
 int test[] = {1, 17, 0, 8, 11, 4, -3, 19, 4, 18, 19, -4, 1, -3, -4, 0, 18};
 
@@ -37,7 +58,20 @@ class MyServerCallbacks: public BLEServerCallbacks{
 
 void setup() {
   Serial.begin(9600);
-  //Serial.println();
+// <<<<<<< main
+//   //Serial.println();
+// =======
+//   Serial.println("h");
+//   pinMode(button_0, INPUT);
+//   pinMode(button_1, INPUT);
+//   pinMode(button_2, INPUT);
+//   pinMode(button_3, INPUT);
+//   pinMode(button_4, INPUT);
+//   pinMode(button_5, INPUT);
+//   pinMode(button_6, INPUT);
+//   pinMode(button_7, INPUT);
+//   pinMode(button_8, INPUT);
+// >>>>>>> main
 
   getmode();
   // mode = 1;
@@ -70,6 +104,24 @@ void loop() {
       delay(1000);
     }
   }
+  // arr[0] = digitalRead(button_0);
+  // arr[1] = digitalRead(button_1);
+  // arr[2] = digitalRead(button_2);
+  // arr[3] = digitalRead(button_3);
+  // arr[4] = digitalRead(button_4);
+  // arr[5] = digitalRead(button_5);
+  // arr[6] = digitalRead(button_6);
+  // arr[7] = digitalRead(button_7);
+  // arr[8] = digitalRead(button_8);
+  
+  arr[0]= 0;
+  arr[1] = 1;
+  arr[2] = 1;
+  delay(500);
+  int encoded = encodeButtons(arr, 8);
+  Serial.println(encoded);
+  Serial.println(arr[2]);
+
   delay(3000);
 
 }
