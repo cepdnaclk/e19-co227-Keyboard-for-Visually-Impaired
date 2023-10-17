@@ -43,13 +43,13 @@ Welcome to our revolutionary project aimed at creating an innovative keyboard so
 
 ### Data Flow
 
-![Data Flow](./docs/images/dataflow.jpg)
+![Data Flow](./images/dataflow.jpg)
 
   
 ### Control Flow
 
 
-![Control Flow](./docs/images/controlflow.jpg)
+![Control Flow](./images/controlflow.jpg)
 
 
 ### Giving Inputs
@@ -68,7 +68,7 @@ Welcome to our revolutionary project aimed at creating an innovative keyboard so
 
 ## Design Concept
 
-![Design Concept](./docs/images/designconcept.jpg)
+![Design Concept](./images/designconcept.jpg)
   <br>
  
 ## User Experince
@@ -78,7 +78,7 @@ Welcome to our revolutionary project aimed at creating an innovative keyboard so
 
 ## Project Design
 
-![Project Design](./docs/images/projectdesign.jpg)
+![Project Design](./images/projectdesign.jpg)
   <br>
 
 ## Links
