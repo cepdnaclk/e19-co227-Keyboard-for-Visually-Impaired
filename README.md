@@ -34,7 +34,7 @@ Welcome to our revolutionary project aimed at creating an innovative keyboard so
 
 > <img src="./docs/images/dataflow.jpg" alt="Data Flow" width="600" height="400">
 
-  <br>
+  
 ### Control Flow
 
 > <img src="./docs/images/controlflow.jpg" alt="Control Flow" width="600" height="400">
