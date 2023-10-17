@@ -30,15 +30,18 @@ Welcome to our revolutionary project aimed at creating an innovative keyboard so
 
 ## Control & Data Flow
 
-### Data Flow
 
-> <img src="./dataflow.jpg" alt="Alt Text" width="600" height="400">
 
-  <br>
+![Data Flow](./docs/images/dataflow.jpg)
+
+
+
 
 ### Giving Inputs
 
-> The system employs a set of 10 pushbuttons for character input, with 8 buttons dedicated to character combinations and 2 buttons serving as essential controls for backspacing and inserting spaces. It facilitates communication between an ESP32 microcontroller and a PC through two primary connections: a USB connection for seamless data exchange and a Bluetooth connection for wireless communication. This setup allows for versatile and efficient text input and data transfer between the ESP32 device and a connected PC, offering both convenience and flexibility in various applications.
+> The system is equipped with a set of 9 pushbuttons, each with a distinct role in character input. Of these buttons, 6 are dedicated to forming character combinations, while the remaining 3 serve as essential controls for backspacing, inserting spaces, and mode selection. The primary mode of connection for this system is through a USB interface, ensuring seamless data exchange and reliable communication between the ESP32 microcontroller and a connected PC.
+
+> In addition to the USB connection, the system offers additional features, expanding its capabilities to include wireless communication options. Users can opt for wireless data transfer via both Wi-Fi and Bluetooth connections, enhancing the versatility and efficiency of text input and data exchange between the ESP32 device and the connected PC. These wireless connections provide convenience and flexibility, making the system suitable for a wide range of applications.
 
  <br>
 
@@ -48,10 +51,20 @@ Welcome to our revolutionary project aimed at creating an innovative keyboard so
 
 <br>
 
+## Design Concept
+
+![Design Concept](./docs/images/designconcept.jpg)
+  <br>
+ 
 ## User Experince
 
 - The system offers extensive character support, encompassing over 50 characters, including virtually all keys commonly found on a standard keyboard. This comprehensive range includes numbers and letters, both uppercase and lowercase, adhering to the standard Braille alphabet pattern for intuitive input. For special characters, users can simply type the character's name, aided by an efficient auto-searching and auto-filling system that condenses the process to a maximum of three letters, ensuring swift and accurate access to these additional characters.
 - The system simplifies user interaction by adhering to standard Braille alphabet patterns, minimizing the need for complex memorization. It offers voice responses that provide real-time feedback to users as they press keys, enhancing the user experience and ensuring accuracy. Notably, after each word is input, the system offers a vocalized response of the complete word, allowing users to verify their input and reinforcing effective communication.
+
+## Project Design
+
+![Project Design](./docs/images/projectdesign.jpg)
+  <br>
 
 ## Links
 

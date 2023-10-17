@@ -142,6 +142,7 @@ class KeyDecoder:
         """"
         decode the integer in to a key and generate voice feedback
         """
+        code = decodeMap[code]
         if code>=0:
             if self.speciaclChMode:
                 s = chr(ord('a')+code)
@@ -193,6 +194,7 @@ class KeyDecoder:
                 self.speciaclChMode = False
                 talk(self.word)
                 self.word = ""
+                return " "
             elif code == -4:
                 talk("Special character mode")
                 self.speciaclChMode = True
@@ -200,9 +202,30 @@ class KeyDecoder:
 def test():
     
     test_decoder = KeyDecoder()
-    assert test_decoder.decode(0) =="a"
-    assert test_decoder.decode(1)=="b"
-    assert test_decoder.decode(2)=="c"
-    test_decoder.decode(-1)
-    assert test_decoder.decode(0) == "A"
+    a = [1, 0, 0, 0, 0, 0]
+    b = [1, 1, 0, 0, 0, 0]
+    c = [1, 0, 0, 1, 0, 0]
+    d = [1, 0, 0, 1, 1, 0]
+    e = [1, 0, 0, 0, 1, 0]
+    shift = [0, 0, 0, 0, 0, 1]
+    space = [0, 0, 0, 0, 0, 0, 0, 0, 1]
+
+    #encode
+    encoded_a = encode(a)
+    encoded_b = encode(b)
+    encoded_c = encode(c)
+    encoded_d = encode(d)
+    encoded_e = encode(e)
+    encoded_shift = encode(shift)
+    encoded_space = encode(space)
+
+    #testing
+    assert test_decoder.decode(encoded_a) =="a"
+    assert test_decoder.decode(encoded_b)=="b"
+    assert test_decoder.decode(encoded_c)=="c"
+    assert test_decoder.decode(encoded_d) == "d"
+    assert test_decoder.decode(encoded_e) == "e"
+    assert test_decoder.decode(encoded_space) == " "
+    test_decoder.decode(encoded_shift)
+    assert test_decoder.decode(encoded_a) == "A"
 
