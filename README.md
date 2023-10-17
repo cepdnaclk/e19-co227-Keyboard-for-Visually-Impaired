@@ -30,15 +30,11 @@ Welcome to our revolutionary project aimed at creating an innovative keyboard so
 
 ## Control & Data Flow
 
-### Data Flow
+
 
 ![Data Flow](./docs/images/dataflow.jpg)
 
-  
-### Control Flow
 
-
-![Control Flow](./docs/images/controlflow.jpg)
 
 
 ### Giving Inputs
