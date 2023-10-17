@@ -33,6 +33,7 @@ Welcome to our revolutionary project aimed at creating an innovative keyboard so
 ### Data Flow
 
 > <img src="./docs/images/dataflow.jpg" alt="Data Flow" width="600" height="400">
+![Sample Image](./images/sample.png)
 
   
 ### Control Flow
