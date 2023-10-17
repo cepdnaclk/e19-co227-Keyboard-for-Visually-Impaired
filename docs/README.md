@@ -41,15 +41,10 @@ Welcome to our revolutionary project aimed at creating an innovative keyboard so
 
 ## Control & Data Flow
 
-### Data Flow
 
 ![Data Flow](./images/dataflow.jpg)
 
   
-### Control Flow
-
-
-![Control Flow](./images/controlflow.jpg)
 
 
 ### Giving Inputs
