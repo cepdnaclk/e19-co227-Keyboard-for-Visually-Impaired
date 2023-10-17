@@ -1,3 +1,7 @@
+// Author : Lahiru Manikdiwela, Harith Abeysinghe, Dasun Theekshana
+// File : KeyBoard.ino
+// Date : 19/09/2023
+
 #include <WiFi.h>
 #include <BLEDevice.h>
 #include <BLEServer.h>
@@ -8,6 +12,7 @@
 #define SERVICE_UUID        "4fafc201-1fb5-459e-8fcc-c5c9c331914b"
 #define CHARACTERISTIC_UUID "beb5483e-36e1-4688-b7f5-ea07361b26a8"
 
+// Selected Pinn of the ESP32
 const int button_0 = 17;
 const int button_1= 18;
 const int button_2 = 19;
@@ -17,7 +22,7 @@ const int button_5= 26;
 const int button_6 = 27;
 const int button_7 = 32;
 const int button_8 = 33;
-// 19, 21, 25, 26, 27, 32, 33, 34, 35
+
 char ssid[50];      // Buffer ro store SSID   
 char password[50];  // Buffer to store password
 char host[50];      // Buffer to store host IP
@@ -36,7 +41,7 @@ int encodeButtons(int arr[], int size){
 }
 
 
-int test[] = {1, 17, 0, 8, 11, 4, -3, 19, 4, 18, 19, -4, 1, -3, -4, 0, 18};
+//int test[] = {1, 17, 0, 8, 11, 4, -3, 19, 4, 18, 19, -4, 1, -3, -4, 0, 18};
 
 BLEServer* pServer = NULL;
 BLECharacteristic* pCharacteristic= NULL;
@@ -58,20 +63,20 @@ class MyServerCallbacks: public BLEServerCallbacks{
 
 void setup() {
   Serial.begin(9600);
-// <<<<<<< main
+
 //   //Serial.println();
-// =======
+//  Initilizing the Mode of the Pins
 //   Serial.println("h");
-//   pinMode(button_0, INPUT);
-//   pinMode(button_1, INPUT);
-//   pinMode(button_2, INPUT);
-//   pinMode(button_3, INPUT);
-//   pinMode(button_4, INPUT);
-//   pinMode(button_5, INPUT);
-//   pinMode(button_6, INPUT);
-//   pinMode(button_7, INPUT);
-//   pinMode(button_8, INPUT);
-// >>>>>>> main
+  pinMode(button_0, INPUT);
+  pinMode(button_1, INPUT);
+  pinMode(button_2, INPUT);
+  pinMode(button_3, INPUT);
+  pinMode(button_4, INPUT);
+  pinMode(button_5, INPUT);
+  pinMode(button_6, INPUT);
+  pinMode(button_7, INPUT);
+  pinMode(button_8, INPUT);
+
 
   getmode();
   // mode = 1;
@@ -104,23 +109,25 @@ void loop() {
       delay(1000);
     }
   }
-  // arr[0] = digitalRead(button_0);
-  // arr[1] = digitalRead(button_1);
-  // arr[2] = digitalRead(button_2);
-  // arr[3] = digitalRead(button_3);
-  // arr[4] = digitalRead(button_4);
-  // arr[5] = digitalRead(button_5);
-  // arr[6] = digitalRead(button_6);
-  // arr[7] = digitalRead(button_7);
-  // arr[8] = digitalRead(button_8);
+
+  // Reading States of all the Pins
+  arr[0] = digitalRead(button_0);
+  arr[1] = digitalRead(button_1);
+  arr[2] = digitalRead(button_2);
+  arr[3] = digitalRead(button_3);
+  arr[4] = digitalRead(button_4);
+  arr[5] = digitalRead(button_5);
+  arr[6] = digitalRead(button_6);
+  arr[7] = digitalRead(button_7);
+  arr[8] = digitalRead(button_8);
   
-  arr[0]= 0;
-  arr[1] = 1;
-  arr[2] = 1;
+  // arr[0]= 0;
+  // arr[1] = 1;
+  // arr[2] = 1;
   delay(500);
   int encoded = encodeButtons(arr, 8);
   Serial.println(encoded);
-  Serial.println(arr[2]);
+  // Serial.println(arr[2]);
 
   delay(3000);
 

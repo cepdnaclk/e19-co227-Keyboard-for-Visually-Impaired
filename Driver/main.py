@@ -1,4 +1,4 @@
-# Author : Dasun Theekshana, Ravindu
+# Author : Dasun Theekshana, Ravindu Abeysinghe
 # Date : 19/09/2023
 # File : main.py
 

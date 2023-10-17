@@ -1,4 +1,4 @@
-# Author : Dasun Theekshana
+# Author : Dasun Theekshana, Harith Abeysinghe
 # Date : 19/09/2023
 # File : SerialReader.py
 
