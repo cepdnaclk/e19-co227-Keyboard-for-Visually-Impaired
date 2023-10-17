@@ -1,6 +1,6 @@
 # Author : Dasun Theekshana
 # Date : 19/09/2023
-# File : SerialReader.py
+# File : WiFiReader.py
 
 import socket
 
