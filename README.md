@@ -52,10 +52,12 @@ Welcome to our revolutionary project aimed at creating an innovative keyboard so
 > Serial output from the system is managed through Python scripts. The key libraries employed in this process include pyserial, which facilitates communication with the hardware, and pynput, enabling seamless integration of keyboard and mouse inputs. asyncio enhances asynchronous operations, ensuring smooth and efficient execution. Additionally, voice feedback is provided using pyttsx3, enhancing user interaction by adding vocal responses to system actions. These Python libraries collectively empower the system to offer comprehensive control, user-friendly input, and informative voice output for an enriched user experience.
 
 <br>
+
 ## Design Concept
 > <img src="./docs/images/designconcept.jpg" alt="Design Concept" width="600" height="400">
 
   <br>
+ 
 ## User Experince
 
 - The system offers extensive character support, encompassing over 50 characters, including virtually all keys commonly found on a standard keyboard. This comprehensive range includes numbers and letters, both uppercase and lowercase, adhering to the standard Braille alphabet pattern for intuitive input. For special characters, users can simply type the character's name, aided by an efficient auto-searching and auto-filling system that condenses the process to a maximum of three letters, ensuring swift and accurate access to these additional characters.
