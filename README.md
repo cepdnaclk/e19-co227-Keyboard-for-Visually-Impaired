@@ -32,15 +32,14 @@ Welcome to our revolutionary project aimed at creating an innovative keyboard so
 
 ### Data Flow
 
-> <img src="./docs/images/dataflow.jpg" alt="Data Flow" width="600" height="400">
-![Sample Image](./docs/images/sample.png)
+![Data Flow](./docs/images/dataflow.jpg)
 
   
 ### Control Flow
 
-> <img src="./docs/images/controlflow.jpg" alt="Control Flow" width="600" height="400">
 
-  <br>
+![Control Flow](./docs/images/controlflow.jpg)
+
 
 ### Giving Inputs
 
@@ -57,8 +56,8 @@ Welcome to our revolutionary project aimed at creating an innovative keyboard so
 <br>
 
 ## Design Concept
-> <img src="./docs/images/designconcept.jpg" alt="Design Concept" width="600" height="400">
 
+![Design Concept](./docs/images/designconcept.jpg)
   <br>
  
 ## User Experince
@@ -67,8 +66,8 @@ Welcome to our revolutionary project aimed at creating an innovative keyboard so
 - The system simplifies user interaction by adhering to standard Braille alphabet patterns, minimizing the need for complex memorization. It offers voice responses that provide real-time feedback to users as they press keys, enhancing the user experience and ensuring accuracy. Notably, after each word is input, the system offers a vocalized response of the complete word, allowing users to verify their input and reinforcing effective communication.
 
 ## Project Design
-> <img src="./docs/images/projectdesign.jpg" alt="Project Designt" width="600" height="400">
 
+![Project Design](./docs/images/projectdesign.jpg)
   <br>
 
 ## Links
